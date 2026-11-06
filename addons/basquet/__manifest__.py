@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Lliga de Bàsquet',
+    'name': 'Liga de Bàsquet',
     'version': '19.0.1.0.0',
-    'summary': "Gestió d'una lliga de bàsquet: equips, jugadors i pavellons",
+    'summary': "Gestió de una liga de basquet: equipos, jugadores y pavellones",
     'category': 'Sports',
-    'author': 'Hugo',
+    'author': 'Antuan',
     'depends': ['base'],
     'data': [
         'security/ir.model.access.csv',
