@@ -16,7 +16,7 @@ services:
       - HOST=db
       - USER=odoo
       - PASSWORD=odoo
-    command: odoo -d proves -u practica_git_sge --dev=all
+    command: odoo -d proves -i basquet --dev=all
     tty: true
 
   db:
