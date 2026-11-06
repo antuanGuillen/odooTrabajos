@@ -12,9 +12,8 @@ class Tiquet(models.Model):
     _name = 'venda_entrades_segures.tiquet'
     _description = 'Tiquet (entrada nominal anti-revenda)'
 
-    # ------------------------------------------------------------------
-    # Valor per defecte de les etiquetes
-    # ------------------------------------------------------------------
+    name = fields.Char(string='Referència del tiquet', required=True)
+
     def _get_default_tags(self):
         """Retorna les etiquetes "Nominal" i "No Reemborsable" buscant-les
         pels seus identificadors externs (definits a data/etiqueta_data.xml)."""
@@ -28,9 +27,7 @@ class Tiquet(models.Model):
                 etiquetes |= etiqueta
         return [(6, 0, etiquetes.ids)]
 
-    # ------------------------------------------------------------------
-    # Camps
-    # ------------------------------------------------------------------
+
     comprador_id = fields.Many2one(
         'res.partner', string='Comprador', required=True)
     esdeveniment_id = fields.Many2one(
