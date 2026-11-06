@@ -16,7 +16,7 @@ services:
       - HOST=db
       - USER=odoo
       - PASSWORD=odoo
-    command: odoo -d proves -i practica_git_sge --dev=all
+    command: odoo -d proves -i venda_entrades_segures --dev=all
     tty: true
 
   db:
