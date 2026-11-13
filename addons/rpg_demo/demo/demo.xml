@@ -1,30 +1,82 @@
 <odoo>
     <data>
-<!--
-          <record id="object0" model="rpg_demo.rpg_demo">
-            <field name="name">Object 0</field>
-            <field name="value">0</field>
-          </record>
 
-          <record id="object1" model="rpg_demo.rpg_demo">
-            <field name="name">Object 1</field>
-            <field name="value">10</field>
-          </record>
+         <!-- FACCIÓ -->
+    <record id="faccio_guardians" model="rpg.faccio">
+        <field name="name">Guardians de la Llum</field>
+    </record>
 
-          <record id="object2" model="rpg_demo.rpg_demo">
-            <field name="name">Object 2</field>
-            <field name="value">20</field>
-          </record>
 
-          <record id="object3" model="rpg_demo.rpg_demo">
-            <field name="name">Object 3</field>
-            <field name="value">30</field>
-          </record>
+    <!-- HEROI PRINCIPAL -->
+    <record id="heroi_principal" model="rpg.heroi">
 
-          <record id="object4" model="rpg_demo.rpg_demo">
-            <field name="name">Object 4</field>
-            <field name="value">40</field>
-          </record>
--->
+        <field name="name">Arthas</field>
+
+        <!-- IMATGE -->
+        <field name="imatge"
+               type="base64"
+               file="rpg_demo/demo/images/heroe.png"/>
+
+        <!-- DATA ACTUAL MENYS 30 DIES -->
+        <field name="data_creacio"
+               eval="(DateTime.today() - relativedelta(days=30)).strftime('%Y-%m-%d')"/>
+
+        <!-- REFERENCIA MANY2ONE -->
+        <field name="faccio_id" ref="faccio_guardians"/>
+
+        <!-- MANY2MANY: CREACIÓ D'HABILITATS -->
+        <field name="habilitat_ids" eval="[
+            (0, 0, {
+                'name': 'Espasa sagrada',
+                'descripcio': 'Atac amb espasa màgica',
+                'nivell': 10
+            }),
+            (0, 0, {
+                'name': 'Escut protector',
+                'descripcio': 'Protecció contra enemics',
+                'nivell': 8
+            }),
+            (0, 0, {
+                'name': 'Magia de luz',
+                'descripcio': 'Magia luminosa',
+                'nivell': 9
+            })
+        ]"/>
+
+    </record>
+
+
+    <!-- AVALUADOR: IMATGE -->
+    <record id="avaluador_imatge" model="rpg.avaluador">
+        <field name="nom_model">rpg.heroi</field>
+        <field name="ext_id">rpg_demo.heroi_principal</field>
+        <field name="requisit">img</field>
+    </record>
+
+
+    <!-- AVALUADOR: REFERENCIA -->
+    <record id="avaluador_referencia" model="rpg.avaluador">
+        <field name="nom_model">rpg.heroi</field>
+        <field name="ext_id">rpg_demo.heroi_principal</field>
+        <field name="requisit">ref</field>
+    </record>
+
+
+    <!-- AVALUADOR: DATA -->
+    <record id="avaluador_data" model="rpg.avaluador">
+        <field name="nom_model">rpg.heroi</field>
+        <field name="ext_id">rpg_demo.heroi_principal</field>
+        <field name="requisit">dat</field>
+    </record>
+
+
+    <!-- AVALUADOR: MANY2MANY -->
+    <record id="avaluador_many2many" model="rpg.avaluador">
+        <field name="nom_model">rpg.heroi</field>
+        <field name="ext_id">rpg_demo.heroi_principal</field>
+        <field name="requisit">m2m</field>
+    </record>
+
+
     </data>
 </odoo>

@@ -1,2 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_rpg_demo_rpg_demo,rpg_demo.rpg_demo,model_rpg_demo_rpg_demo,base.group_user,1,1,1,1
+access_rpg_heroi,rpg.heroi,model_rpg_heroi,base.group_user,1,1,1,1
+access_rpg_habilitat,rpg.habilitat,model_rpg_habilitat,base.group_user,1,1,1,1
+access_rpg_faccio,rpg.faccio,model_rpg_faccio,base.group_user,1,1,1,1
+access_rpg_avaluador,rpg.avaluador,model_rpg_avaluador,base.group_user,1,1,1,1
+
