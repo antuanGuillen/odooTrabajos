@@ -42,7 +42,7 @@ class RPGHeroi(models.Model):
 
     name = fields.Char(string='Nom del personatge', required=True)
 
-    imatge = fields.Image(string='Imatge')
+    image = fields.Image(string='Imatge')
 
     data_creacio = fields.Date(string='Data de creació')
 
